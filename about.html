@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>个人简介 | 张凯淇</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* 个人基本信息布局 */
+        .profile-header {
+            display: flex;
+            gap: 40px;
+            align-items: flex-start;
+            flex-wrap: wrap;
+        }
+
+        .profile-photo {
+            width: 180px;
+            height: 240px;
+            object-fit: cover;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            border: 1px solid #ddd;
+        }
+
+        .profile-details {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        /* 姓名及下划线样式 */
+        .name-title {
+            color: #2c3e50;
+            font-size: 2.5rem;
+            margin: 0 0 10px 0;
+            font-weight: bold;
+            border-bottom: 3px solid #3498db; /* 与学术块颜色一致的亮蓝色 */
+            padding-bottom: 5px;
+            display: block;
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px 20px;
+            margin-top: 15px;
+            font-size: 1.05rem;
+        }
+
+        .info-item b {
+            color: #555;
+            display: inline-block;
+            width: 85px;
+        }
+
+        /* 学术数据高亮区 */
+        .academic-stats {
+            background-color: #f0f7ff;
+            border-left: 4px solid #3498db;
+            padding: 20px;
+            margin-top: 25px;
+            border-radius: 0 8px 8px 0;
+        }
+
+        /* --- 新增：图片中的标题栏样式 (蓝色系还原) --- */
+        .custom-section-title {
+            display: flex;
+            align-items: center;
+            margin: 30px 0 15px 0;
+        }
+
+        .dark-blue-block {
+            width: 12px;
+            height: 32px;
+            background-color: #8b0000; /* 这里可以根据喜好改深蓝色 #1a3a5a，若要纯蓝统一可改 */
+            background-color: #2c3e50; /* 采用深蓝色方块 */
+            margin-right: 0;
+        }
+
+        .light-blue-bar {
+            flex: 1;
+            background-color: #e1f0fa; /* 浅蓝色背景条 */
+            padding: 5px 15px;
+            font-size: 1.4rem;
+            font-weight: bold;
+            color: #000;
+        }
+
+        /* 列表项样式 */
+        .experience-list {
+            list-style: none;
+            padding-left: 10px;
+        }
+
+        .experience-list li {
+            position: relative;
+            padding-left: 25px;
+            margin-bottom: 12px;
+            line-height: 1.6;
+            font-size: 1.05rem;
+        }
+
+        .experience-list li::before {
+            content: "✧"; /* 还原图片中的菱形符号 */
+            position: absolute;
+            left: 0;
+            color: #3498db;
+            font-weight: bold;
+        }
+
+        .highlight-bold {
+            font-weight: bold;
+            text-decoration: underline; /* 还原图片中“国家奖学金”的强调感 */
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="logo">Nice to meet you!</div>
+        <ul>
+            <li><a href="index.html">首页</a></li>
+            <li><a href="about.html" class="active">个人简介</a></li>
+            <li><a href="research.html">科研经历</a></li>
+            <li><a href="life.html">日常生活</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <!-- 1. 基本信息卡片 -->
+        <div class="card" style="margin-top: 20px;">
+            <div class="profile-header">
+                <img src="images/me.jpg" alt="张凯淇 个人照" class="profile-photo">
+                <div class="profile-details">
+                    <span class="name-title">张 凯 淇</span>
+                    <div class="info-grid">
+                        <div class="info-item"><b>性&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;别：</b>女</div>
+                        <div class="info-item"><b>电&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;话：</b>135-8943-6287</div>
+                        <div class="info-item"><b>出生日期：</b>2005.07.25</div>
+                        <div class="info-item"><b>政治面貌：</b>中共预备党员</div>
+                        <div class="info-item"><b>籍&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;贯：</b>山东东营</div>
+                        <div class="info-item"><b>邮&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;箱：</b>2309060104@s.upc.edu.cn</div>
+                    </div>
+
+                    <div class="academic-stats">
+                        <p><b>本科学校：</b>中国石油大学（华东） (211/双一流)</p>
+                        <p><b>学分绩点：</b><span style="color: #e67e22; font-weight: bold;">93.09 / 100.00</span></p>
+                        <p><b>专业排名：</b>理科实验班 <b>1/89</b> ；地球物理学 <b>1/40</b></p>
+                        <p><b>英语水平：</b>CET-4 (596) ; CET-6 (553)</p>
+                        <p><b>主要课程成绩：</b>信号分析与处理：<b>100</b>；地球动力学：<b>98</b>；最优化方法：<b>98</b>；弹性波动力学：<b>95</b></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 2. 荣誉成果 (还原图片样式) -->
+        <div class="custom-section-title">
+            <div class="dark-blue-block"></div>
+            <div class="light-blue-bar">荣 誉 成 果</div>
+        </div>
+        <div class="card">
+            <ul class="experience-list">
+                <li>连续两年获<span class="highlight-bold">国家奖学金</span>（2024、2025） | 社会工作奖学金（2024）</li>
+                <li>大学生数学竞赛（非数A类）省三等奖（2023） | “21世纪杯”全国大学生英语演讲比赛二等奖（2024） | 全国大学生英语竞赛（C类）三等奖（2024）</li>
+            </ul>
+        </div>
+
+        <!-- 3. 工作经历 (还原图片样式) -->
+        <div class="custom-section-title">
+            <div class="dark-blue-block"></div>
+            <div class="light-blue-bar">工 作 经 历</div>
+        </div>
+        <div class="card">
+            <ul class="experience-list">
+                <li>担任理科实验班23级辅导员助理，深度参与班集体建设与学生事务管理</li>
+                <li>作为星火支教队成员负责教案撰写与课程设计，助力团队获评五星级实践队</li>
+            </ul>
+        </div>
+    </div>
+
+    <footer>&copy; 2026 张凯淇 版权所有</footer>
+</body>
+</html>

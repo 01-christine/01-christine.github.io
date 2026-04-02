@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>日常生活 | 张凯淇</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .slider-area { position: relative; width: 100%; overflow: hidden; padding: 20px 0; }
+        .slider-track { display: flex; transition: transform 0.5s ease-in-out; }
+        .slide-pane { min-width: 100%; display: flex; gap: 40px; align-items: stretch; }
+        
+        .image-side { flex: 1.3; height: 450px; display: flex; gap: 10px; background: #f0f2f5; border-radius: 8px; }
+        .image-side img { width: 100%; height: 100%; object-fit: contain; }
+
+        /* 修改这里：将 top 改为 center 20%，让画面比刚才稍微往下移一点 */
+        .v-stack { flex-direction: column; }
+        .v-stack img { 
+            height: calc(50% - 5px); 
+            object-fit: cover; 
+            object-position: center 20%; 
+        }
+
+        .h-stack { flex-direction: row; }
+        .h-stack img { width: calc(50% - 5px); object-fit: cover; }
+
+        .text-side { flex: 1; display: flex; flex-direction: column; justify-content: center; }
+        .text-side h3 { margin-bottom: 20px; border-left: 4px solid #3498db; padding-left: 15px; }
+
+        .slider-nav { display: flex; justify-content: center; align-items: center; gap: 15px; margin-top: 30px; }
+        .nav-btn { background: #fff; border: 1px solid #2c3e50; color: #2c3e50; width: 40px; height: 40px; border-radius: 50%; cursor: pointer; transition: 0.3s; }
+        .nav-btn:hover { background: #2c3e50; color: #fff; }
+        .dot { width: 8px; height: 8px; background: #ccc; border-radius: 50%; cursor: pointer; }
+        .dot.active { background: #3498db; width: 24px; border-radius: 4px; }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo">Nice to meet you!</div>
+        <ul>
+            <li><a href="index.html">首页</a></li>
+            <li><a href="about.html">个人简介</a></li>
+            <li><a href="research.html">科研经历</a></li>
+            <li><a href="life.html" class="active">日常生活</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <div class="card">
+            <h2>兴趣爱好与课外生活</h2>
+            
+            <div class="slider-area">
+                <div class="slider-track" id="sliderTrack">
+                    
+                    <!-- 1. 钢琴 -->
+                    <div class="slide-pane">
+                        <div class="image-side"> 
+                            <img src="images/piano1.jpg" alt="钢琴演奏">
+                        </div>
+                        <div class="text-side">
+                            <h3><b>钢琴</b></h3>
+                            <p>自幼学习钢琴并达到<b>演奏级水平</b>，曾斩获德国欧米勒国际钢琴公开赛金奖。在大学里，它更是我课余时间里一位不可或缺的朋友。</p>
+                        </div>
+                    </div>
+
+                    <!-- 2. 民族舞 -->
+                    <div class="slide-pane">
+                        <div class="image-side"> 
+                            <img src="images/dance1.jpg" alt="民族舞表演">
+                        </div>
+                        <div class="text-side">
+                            <h3>民族舞</h3>
+                            <p>从4岁起学习舞蹈，并取得<b>中国舞十级证书</b>。12年的舞蹈生涯教会了我坚韧和不放弃，也让我在大学里面对高强度学习科研任务时，依然能保持良好的体能与心态。</p>
+                        </div>
+                    </div>
+
+                    <!-- 3. 书法与绘画 (位置已微调) -->
+                    <div class="slide-pane">
+                        <div class="image-side v-stack">
+                            <img src="images/art2.jpg" alt="书法作品">
+                            <img src="images/art1.jpg" alt="绘画作品">
+                        </div>
+                        <div class="text-side">
+                            <h3>书法和绘画</h3>
+                            <p>书法和画画是陪伴我最久的两位朋友。16年的学习生涯，我不但获得了书法和画画十级证书，也收获了在喧嚣世界中迅速平静下来思考的能力。</p>
+                        </div>
+                    </div>
+
+                    <!-- 4. 辩论 (已改为单图完整展示) -->
+                    <div class="slide-pane">
+                        <div class="image-side">
+                            <img src="images/debate1.jpg" alt="辩论赛现场">
+                        </div>
+                        <div class="text-side">
+                            <h3>课余活动：辩论</h3>
+                            <p>大一时参加校级辩论赛，作为三辩，获得了总决赛亚军的成绩，这段经历也锻炼了我的表达能力和应变能力。</p>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="slider-nav">
+                    <button class="nav-btn" onclick="moveSlide(-1)">❮</button>
+                    <div class="dots-container" id="dotsContainer"></div>
+                    <button class="nav-btn" onclick="moveSlide(1)">❯</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>&copy; 2026 张凯淇 | 中国石油大学（华东）</footer>
+
+    <script>
+        const track = document.getElementById('sliderTrack');
+        const dotsContainer = document.getElementById('dotsContainer');
+        const slides = document.querySelectorAll('.slide-pane');
+        let index = 0;
+
+        slides.forEach((_, i) => {
+            const dot = document.createElement('div');
+            dot.classList.add('dot');
+            if(i === 0) dot.classList.add('active');
+            dot.onclick = () => goToSlide(i);
+            dotsContainer.appendChild(dot);
+        });
+
+        const dots = document.querySelectorAll('.dot');
+        function updateDots() {
+            dots.forEach(d => d.classList.remove('active'));
+            dots[index].classList.add('active');
+        }
+
+        function moveSlide(step) {
+            index += step;
+            if (index < 0) index = slides.length - 1;
+            if (index >= slides.length) index = 0;
+            track.style.transform = `translateX(-${index * 100}%)`;
+            updateDots();
+        }
+
+        function goToSlide(i) {
+            index = i;
+            track.style.transform = `translateX(-${index * 100}%)`;
+            updateDots();
+        }
+    </script>
+</body>
+</html>
