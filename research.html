@@ -215,7 +215,7 @@
                     <div class="slider-track">
                         <!-- 第 1 页 -->
                         <div class="slide-pane">
-                            <div class="slide-left"><img src="images/project1_pic1.jpg" alt="研究框架图"></div>
+                            <div class="slide-left"><img src="Images/project1_pic1.jpg" alt="研究框架图"></div>
                             <div class="slide-right">
                                 <h4><span class="tech-tag">研究框架</span> 整体架构</h4>
                                 <p>本项目面向区域生态保护需求，构建了由三大核心模块组成的联合分析框架：<br><br>1. <b>SBAS-InSAR 时序形变监测：</b>处理 Sentinel-1 影像，提取高精度形变信息。<br>2. <b>高光谱图像分类：</b>基于 SAM-Transformer 框架实现精细化地物分类。<br>3. <b>联合分析与风险评估：</b>深度融合数据，实现沉降成因判别与潜在风险评估。</p>
@@ -223,7 +223,7 @@
                         </div>
                         <!-- 第 2 页 -->
                         <div class="slide-pane">
-                            <div class="slide-left"><img src="images/project1_pic2.jpg" alt="形变监测图"></div>
+                            <div class="slide-left"><img src="Images/project1_pic2.jpg" alt="形变监测图"></div>
                             <div class="slide-right">
                                 <h4><span class="tech-tag">形变处理</span> SBAS-InSAR地表形变监测</h4>
                                 <p><b>处理方法：</b>对 2023 年 7 月至 2025 年 9 月间的 27 景 Sentinel-1 升轨影像进行处理。通过构建小基线集（Small Baseline Subsets），经过干涉图生成、相位解缠、GACOS 大气校正及两步反演，剔除噪声并提取线性沉降速率及时间序列形变。<br><br><b>核心结论：</b>研究区域呈现显著的非均匀沉降特征。监测识别出多个明显的沉降漏斗，局部最大年平均沉降速率超过 -425 mm/year。并利用统计分析的方法，得到沉降随时间逐渐增大的结论。</p>
@@ -231,7 +231,7 @@
                         </div>
                         <!-- 第 3 页 -->
                         <div class="slide-pane">
-                            <div class="slide-left"><img src="images/project1_pic3.jpg" alt="图像分类图"></div>
+                            <div class="slide-left"><img src="Images/project1_pic3.jpg" alt="图像分类图"></div>
                             <div class="slide-right">
                                 <h4><span class="tech-tag">图像分类</span> 黄河三角洲土地利用类型图</h4>
                                 <p><b>处理方法：</b>采用高空间分辨率的 GF-5 高光谱遥感数据，应用优化的 SAM-Transformer 框架。通过引入分块推理与缝合策略（patch-based inference-and-stitching）以及加权 Dice 损失函数，显著提升了沿海湿地地物的识别精度。<br><br><b>核心结论：</b>实现了黄河三角洲土地利用的精细化制图，涵盖人工建筑区、农田、湿地和水体四大类及细分子类。分类结果有效克服了同谱异物和复杂纹理的干扰，为沉降成因分析提供了精密的底层地理空间背景数据。</p>
@@ -239,7 +239,7 @@
                         </div>
                         <!-- 第 4 页 -->
                         <div class="slide-pane">
-                            <div class="slide-left"><img src="images/project1_pic4.jpg" alt="风险预测图"></div>
+                            <div class="slide-left"><img src="Images/project1_pic4.jpg" alt="风险预测图"></div>
                             <div class="slide-right">
                                 <h4><span class="tech-tag">风险预测</span> 沉降成因分析与风险评估</h4>
                                 <p><b>处理方法：</b>通过空间叠加分析与联合反演，定量评估不同土地利用类型对地表沉降的影响权重。利用沉降漏斗的时空演变特征，建立了一套半自动成因归因模型，通过形变加速度与地物属性自动识别地下资源开发、基础设施建设等人类活动干扰强度。<br><br><b>核心结论：</b><br><b>  1.成因判别：</b>证实了人工建筑区与显著形变之间的强空间相关性，成因主控因子由“自然压密沉降”转向“人类活动驱动”。<br><b>  2.预测范式：</b>提出的协同框架不仅能根据土地利用模式预估沉降风险，还能反向推导开发强度。这为沿海地区的灾害预警和生态保护提供了从“现象观察”到“机制归因”的一体化技术支持，大幅提升了防灾减灾的时效性。</p>
@@ -268,7 +268,7 @@
 
                         <!-- 第 1 页 -->
                         <div class="slide-pane">
-                            <div class="slide-left"><img src="images/project2_pic2.jpg" alt="网络架构搭建"></div>
+                            <div class="slide-left"><img src="Images/project2_pic2.jpg" alt="网络架构搭建"></div>
                             <div class="slide-right">
                                 <h4><span class="tech-tag">网络搭建</span> 深度解缠模型</h4>
                                 <p>基于 PyTorch 框架独立搭建 U-Net 与深度全卷积 PUNet，利用多层膨胀卷积（Dilated Convolution）有效扩大感受野，提升全局相位特征的提取能力。<br><br>
@@ -285,11 +285,11 @@
         			<!-- 容器内并排放置两张图：训练结果对比图 + Loss曲线 -->
         			<div class="img-grid">
             			<div class="img-item">
-                			<img src="images/training_result.png" alt="训练结果对比">
+                			<img src="Images/training_result.png" alt="训练结果对比">
                 			<p class="img-caption">训练样本复原对比</p>
             			</div>
             			<div class="img-item">
-                			<img src="images/training_loss.png" alt="训练Loss曲线">
+                			<img src="Images/training_loss.png" alt="训练Loss曲线">
                 			<p class="img-caption">Loss收敛曲线</p>
             			</div>
         			</div>
@@ -309,7 +309,7 @@
         			<!-- 容器内并排放置两张图：测试集复原图 + 测试集指标 -->
         			<div class="img-grid">
             			<div class="img-item">
-                			<img src="images/test_sample.png" alt="测试集复原结果">
+                			<img src="Images/test_sample.png" alt="测试集复原结果">
                 			<p class="img-caption">测试集解包裹表现</p>
             			</div>
 
@@ -326,7 +326,7 @@
 
                         <!-- 第 4 页 -->
                         <div class="slide-pane">
-                            <div class="slide-left"><img src="images/project2_pic1.jpg" alt="D-InSAR处理"></div>
+                            <div class="slide-left"><img src="Images/project2_pic1.jpg" alt="D-InSAR处理"></div>
                             <div class="slide-right">
                                 <h4><span class="tech-tag">传统基准</span> 多维交叉验证</h4>
                                 <p>利用 Sentinel-1 影像实现 D-InSAR 形变处理，得到不同月份的地表沉降图。并用 PS-InSAR, SBAS-InSAR 对结果进行多维交叉验证。</p>
