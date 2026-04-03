@@ -5,6 +5,11 @@
     <title>日常生活 | 张凯淇</title>
     <link rel="stylesheet" href="style.css">
     <style>
+        body { background-color: #f8f9fa; } /* 给页面一个浅灰色背景，让卡片更突出 */
+        .container { display: flex; flex-direction: column; gap: 40px; } /* 让两个卡片之间有间距 */
+        .card { padding: 30px; }
+        
+        /* === 滑窗通用样式 (无需修改) === */
         .slider-area { position: relative; width: 100%; overflow: hidden; padding: 20px 0; }
         .slider-track { display: flex; transition: transform 0.5s ease-in-out; }
         .slide-pane { min-width: 100%; display: flex; gap: 40px; align-items: stretch; }
@@ -12,24 +17,20 @@
         .image-side { flex: 1.3; height: 450px; display: flex; gap: 10px; background: #f0f2f5; border-radius: 8px; }
         .image-side img { width: 100%; height: 100%; object-fit: contain; }
 
-        /* 修改这里：将 top 改为 center 20%，让画面比刚才稍微往下移一点 */
         .v-stack { flex-direction: column; }
-        .v-stack img { 
-            height: calc(50% - 5px); 
-            object-fit: cover; 
-            object-position: center 20%; 
-        }
+        .v-stack img { height: calc(50% - 5px); object-fit: cover; object-position: center 20%; }
 
         .h-stack { flex-direction: row; }
         .h-stack img { width: calc(50% - 5px); object-fit: cover; }
 
         .text-side { flex: 1; display: flex; flex-direction: column; justify-content: center; }
-        .text-side h3 { margin-bottom: 20px; border-left: 4px solid #3498db; padding-left: 15px; }
+        .text-side h3 { margin-bottom: 20px; border-left: 4px solid #3498db; padding-left: 15px; font-size: 1.5em; }
 
         .slider-nav { display: flex; justify-content: center; align-items: center; gap: 15px; margin-top: 30px; }
-        .nav-btn { background: #fff; border: 1px solid #2c3e50; color: #2c3e50; width: 40px; height: 40px; border-radius: 50%; cursor: pointer; transition: 0.3s; }
+        .nav-btn { background: #fff; border: 1px solid #2c3e50; color: #2c3e50; width: 40px; height: 40px; border-radius: 50%; cursor: pointer; font-size: 1.2em; transition: 0.3s; }
         .nav-btn:hover { background: #2c3e50; color: #fff; }
-        .dot { width: 8px; height: 8px; background: #ccc; border-radius: 50%; cursor: pointer; }
+        .dots-container { display: flex; gap: 8px; align-items: center; }
+        .dot { width: 8px; height: 8px; background: #ccc; border-radius: 50%; cursor: pointer; transition: 0.3s; }
         .dot.active { background: #3498db; width: 24px; border-radius: 4px; }
     </style>
 </head>
@@ -46,11 +47,61 @@
     </nav>
 
     <div class="container">
+        
+        <!-- ============================ -->
+        <!--   第一大段：志愿服务 (新增)     -->
+        <!-- ============================ -->
+        <div class="card">
+            <h2>志愿服务</h2>
+            
+            <div class="slider-area" id="volunteer-slider">
+                <div class="slider-track">
+                    
+                    <!-- 1. 幸运草 -->
+                    <div class="slide-pane">
+                        <div class="image-side v-stack">
+                            <!-- !!! 请替换成你的图片 !!! -->
+                            <img src="Images/volunteer_luckyclover1.jpg" alt="幸运草公益授课照片1">
+                            <img src="Images/volunteer_luckyclover2.jpg" alt="幸运草公益授课照片2">
+                        </div>
+                        <div class="text-side">
+                            <h3><b>幸运草公益授课负责人</b></h3>
+                            <p>作为负责人，我不仅参与授课，还负责组织和协调整个公益教学活动，为孩子们带去知识与快乐。</p>
+                        </div>
+                    </div>
+
+                    <!-- 2. 星火支教 -->
+                    <div class="slide-pane">
+                        <div class="image-side v-stack">
+                             <!-- !!! 请替换成你的图片 !!! -->
+                            <img src="Images/volunteer_spark1.jpg" alt="星火支教队照片1">
+                            <img src="Images/volunteer_spark2.jpg" alt="星火支教队照片2">
+                        </div>
+                        <div class="text-side">
+                            <h3><b>加入星火支教队</b></h3>
+                            <p>在星火支教队中，我主要负责教案的撰写和课程设计，将专业的知识转化为生动有趣的课堂内容，为偏远地区教育贡献一份力量。</p>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="slider-nav">
+                    <button class="nav-btn nav-btn-prev">❮</button>
+                    <div class="dots-container"></div>
+                    <button class="nav-btn nav-btn-next">❯</button>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- ============================ -->
+        <!--  第二大段：兴趣爱好与课外生活  -->
+        <!-- ============================ -->
         <div class="card">
             <h2>兴趣爱好与课外生活</h2>
             
-            <div class="slider-area">
-                <div class="slider-track" id="sliderTrack">
+            <div class="slider-area" id="hobby-slider">
+                <div class="slider-track">
                     
                     <!-- 1. 钢琴 -->
                     <div class="slide-pane">
@@ -74,7 +125,7 @@
                         </div>
                     </div>
 
-                    <!-- 3. 书法与绘画 (位置已微调) -->
+                    <!-- 3. 书法与绘画 -->
                     <div class="slide-pane">
                         <div class="image-side v-stack">
                             <img src="Images/art2.jpg" alt="书法作品">
@@ -86,7 +137,7 @@
                         </div>
                     </div>
 
-                    <!-- 4. 辩论 (已改为单图完整展示) -->
+                    <!-- 4. 辩论 -->
                     <div class="slide-pane">
                         <div class="image-side">
                             <img src="Images/debate1.jpg" alt="辩论赛现场">
@@ -100,9 +151,9 @@
                 </div>
 
                 <div class="slider-nav">
-                    <button class="nav-btn" onclick="moveSlide(-1)">❮</button>
-                    <div class="dots-container" id="dotsContainer"></div>
-                    <button class="nav-btn" onclick="moveSlide(1)">❯</button>
+                    <button class="nav-btn nav-btn-prev">❮</button>
+                    <div class="dots-container"></div>
+                    <button class="nav-btn nav-btn-next">❯</button>
                 </div>
             </div>
         </div>
@@ -111,38 +162,66 @@
     <footer>&copy; 2026 张凯淇 | 中国石油大学（华东）</footer>
 
     <script>
-        const track = document.getElementById('sliderTrack');
-        const dotsContainer = document.getElementById('dotsContainer');
-        const slides = document.querySelectorAll('.slide-pane');
-        let index = 0;
+        /**
+         * 初始化一个滑窗功能
+         * @param {string} sliderId - 滑窗区域容器的ID
+         */
+        function initializeSlider(sliderId) {
+            const sliderArea = document.getElementById(sliderId);
+            if (!sliderArea) return; // 如果找不到该ID的元素，则退出
 
-        slides.forEach((_, i) => {
-            const dot = document.createElement('div');
-            dot.classList.add('dot');
-            if(i === 0) dot.classList.add('active');
-            dot.onclick = () => goToSlide(i);
-            dotsContainer.appendChild(dot);
+            const track = sliderArea.querySelector('.slider-track');
+            const dotsContainer = sliderArea.querySelector('.dots-container');
+            const slides = sliderArea.querySelectorAll('.slide-pane');
+            const prevBtn = sliderArea.querySelector('.nav-btn-prev');
+            const nextBtn = sliderArea.querySelector('.nav-btn-next');
+            let index = 0;
+
+            // 如果没有幻灯片，则不执行任何操作
+            if (slides.length === 0) return;
+
+            // 动态创建导航点
+            dotsContainer.innerHTML = ''; // 清空，防止重复
+            slides.forEach((_, i) => {
+                const dot = document.createElement('div');
+                dot.classList.add('dot');
+                if (i === 0) dot.classList.add('active');
+                dot.onclick = () => goToSlide(i);
+                dotsContainer.appendChild(dot);
+            });
+            const dots = dotsContainer.querySelectorAll('.dot');
+
+            // 更新导航点的激活状态
+            function updateDots() {
+                dots.forEach(d => d.classList.remove('active'));
+                dots[index].classList.add('active');
+            }
+
+            // 移动幻灯片
+            function moveSlide(step) {
+                // 使用取模运算来循环切换
+                index = (index + step + slides.length) % slides.length;
+                track.style.transform = `translateX(-${index * 100}%)`;
+                updateDots();
+            }
+
+            // 跳转到指定幻灯片
+            function goToSlide(i) {
+                index = i;
+                track.style.transform = `translateX(-${index * 100}%)`;
+                updateDots();
+            }
+
+            // 绑定按钮事件
+            prevBtn.addEventListener('click', () => moveSlide(-1));
+            nextBtn.addEventListener('click', () => moveSlide(1));
+        }
+
+        // 页面加载完成后，分别初始化两个滑窗
+        document.addEventListener('DOMContentLoaded', () => {
+            initializeSlider('volunteer-slider');
+            initializeSlider('hobby-slider');
         });
-
-        const dots = document.querySelectorAll('.dot');
-        function updateDots() {
-            dots.forEach(d => d.classList.remove('active'));
-            dots[index].classList.add('active');
-        }
-
-        function moveSlide(step) {
-            index += step;
-            if (index < 0) index = slides.length - 1;
-            if (index >= slides.length) index = 0;
-            track.style.transform = `translateX(-${index * 100}%)`;
-            updateDots();
-        }
-
-        function goToSlide(i) {
-            index = i;
-            track.style.transform = `translateX(-${index * 100}%)`;
-            updateDots();
-        }
     </script>
 </body>
 </html>
